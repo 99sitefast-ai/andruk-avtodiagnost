@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://99sitefast-ai.github.io/andruk-avtodiagnost/sitemap.xml
