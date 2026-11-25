@@ -1,0 +1,294 @@
+/* ============ АВТОДИАГНОСТ · базовые стили ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul,ol{padding:0; list-style:none}
+
+:root{
+  --ink:#0B0C0E;
+  --ink-2:#131518;
+  --steel:#1C1F23;
+  --paper:#F1EEE9;
+  --paper-2:#E7E3DB;
+  --white:#fff;
+  --red:#E1261C;
+  --red-d:#B01A12;
+  --amber:#FFB000;
+  --line:rgba(255,255,255,.14);
+  --line-d:rgba(11,12,14,.14);
+  --osw:'Oswald','Arial Narrow',sans-serif;
+  --txt:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--txt);
+  font-size:16px;
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+}
+
+.wrap{width:100%; max-width:1240px; margin:0 auto; padding:0 clamp(16px,4vw,40px)}
+.sec{padding:clamp(52px,7.5vw,104px) 0}
+.sec--ink{background:var(--ink); color:#fff}
+.sec--paper{background:var(--paper); color:var(--ink)}
+.sec--tight{padding:clamp(36px,5vw,60px) 0}
+.mt-s{margin-top:14px}.mt-m{margin-top:24px}.mt-l{margin-top:38px}.mt-xl{margin-top:clamp(40px,6vw,68px)}
+
+/* ---------- типографика ---------- */
+.kick{display:inline-flex; align-items:center; gap:9px; font:600 11.5px/1 var(--txt); letter-spacing:.18em; text-transform:uppercase; color:var(--red)}
+.kick::before{content:''; width:9px; height:9px; background:var(--red); flex:none}
+.sec--ink .kick{color:var(--amber)}
+.sec--ink .kick::before{background:var(--amber)}
+
+.stitle{
+  font-family:var(--osw);
+  font-weight:600;
+  text-transform:uppercase;
+  font-size:clamp(1.85rem,4.6vw,3.5rem);
+  line-height:.98;
+  letter-spacing:-.005em;
+  margin-top:16px;
+}
+.stitle--xl{font-size:clamp(2.2rem,6vw,4.4rem)}
+.lead{max-width:62ch; margin-top:18px; font-size:clamp(15px,1.5vw,17.5px); color:rgba(11,12,14,.72)}
+.sec--ink .lead{color:rgba(255,255,255,.72)}
+.hl{background:var(--red); color:#fff; padding:.02em .16em; display:inline-block}
+.sec--ink .hl{background:var(--red)}
+
+/* ---------- кнопки ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--osw); font-weight:600; font-size:15px; letter-spacing:.07em; text-transform:uppercase;
+  padding:15px 24px; border:2px solid var(--red); background:var(--red); color:#fff;
+  transition:transform .16s ease, background .16s ease, color .16s ease, box-shadow .16s ease;
+}
+.btn:hover{background:var(--ink); border-color:var(--ink); color:#fff; transform:translate(-2px,-2px); box-shadow:6px 6px 0 rgba(225,38,28,.9)}
+.btn--ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,.5)}
+.btn--ghost:hover{background:#fff; color:var(--ink); border-color:#fff; box-shadow:6px 6px 0 rgba(255,255,255,.35)}
+.btn--dark{background:var(--ink); border-color:var(--ink); color:#fff}
+.btn--dark:hover{background:var(--red); border-color:var(--red); box-shadow:6px 6px 0 rgba(11,12,14,.85)}
+.btn--lg{font-size:17px; padding:19px 30px}
+.btn--sm{font-size:13px; padding:11px 16px; letter-spacing:.06em}
+.btn-row{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+
+/* ---------- шапка ---------- */
+.site-head{position:sticky; top:0; z-index:60; background:rgba(9,10,12,.97); color:#fff; border-bottom:2px solid var(--red)}
+.head-in{display:flex; align-items:center; gap:clamp(12px,2.5vw,34px); height:74px}
+.brand{display:flex; align-items:center; gap:11px; flex:none}
+.brand-mark{width:36px; height:36px; flex:none}
+.brand-txt{display:flex; flex-direction:column; line-height:1}
+.brand-txt b{font-family:var(--osw); font-weight:700; font-size:19px; letter-spacing:.06em; text-transform:uppercase}
+.brand-txt span{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:5px}
+
+.nav{display:flex; gap:clamp(10px,1.6vw,22px); margin-left:auto}
+.nav a{font-family:var(--osw); font-weight:500; font-size:14px; letter-spacing:.05em; text-transform:uppercase; color:rgba(255,255,255,.78); padding:6px 0; position:relative; white-space:nowrap}
+.nav a::after{content:''; position:absolute; left:0; right:100%; bottom:0; height:2px; background:var(--red); transition:right .2s ease}
+.nav a:hover{color:#fff}
+.nav a:hover::after{right:0}
+.nav a.is-active{color:#fff}
+.nav a.is-active::after{right:0}
+
+.head-cta{display:flex; align-items:center; gap:12px; flex:none}
+.head-phone{font-family:var(--osw); font-weight:600; font-size:16px; letter-spacing:.03em; white-space:nowrap}
+.head-phone:hover{color:var(--amber)}
+.burger{display:none; width:44px; height:44px; border:2px solid rgba(255,255,255,.3); position:relative; flex:none}
+.burger span,.burger span::before,.burger span::after{position:absolute; left:50%; width:20px; height:2px; background:#fff; content:''; transform:translateX(-50%)}
+.burger span{top:50%; margin-top:-1px}
+.burger span::before{top:-6px; left:0; transform:none}
+.burger span::after{top:6px; left:0; transform:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative; background:#000; color:#fff; overflow:hidden; display:flex; align-items:flex-end; min-height:min(86vh,760px)}
+.hero-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 45%; opacity:.62; filter:grayscale(.25) contrast(1.05)}
+.hero::after{content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(6,7,9,.94) 0%,rgba(6,7,9,.66) 52%,rgba(6,7,9,.3) 100%)}
+.hero-in{position:relative; z-index:2; width:100%; padding:clamp(46px,8vw,96px) 0 clamp(34px,5vw,56px)}
+.hero h1{
+  font-family:var(--osw); font-weight:700; text-transform:uppercase;
+  font-size:clamp(2.3rem,6.6vw,5.4rem); line-height:.94; letter-spacing:-.01em;
+  max-width:16ch; margin-top:18px;
+}
+.hero-sub{max-width:46ch; margin-top:22px; font-size:clamp(15px,1.6vw,18px); color:rgba(255,255,255,.82)}
+.hero .btn-row{margin-top:28px}
+.hero-facts{display:flex; flex-wrap:wrap; gap:14px 30px; margin-top:clamp(30px,5vw,46px); padding-top:20px; border-top:2px solid rgba(255,255,255,.16)}
+.hero-facts div{font-family:var(--osw); font-weight:500; font-size:13.5px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.85); display:flex; align-items:center; gap:9px}
+.hero-facts div::before{content:''; width:7px; height:7px; background:var(--red); flex:none}
+
+/* ---------- бегущая строка ---------- */
+.ticker{background:var(--red); color:#fff; overflow:hidden; border-top:2px solid #000; border-bottom:2px solid #000}
+.ticker-track{display:flex; width:max-content; animation:tick 32s linear infinite}
+.ticker-track span{font-family:var(--osw); font-weight:600; font-size:13.5px; letter-spacing:.14em; text-transform:uppercase; padding:11px 26px; border-right:1px solid rgba(0,0,0,.28); white-space:nowrap}
+@keyframes tick{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+.hazard{height:9px; background:repeating-linear-gradient(45deg,var(--red) 0 13px,#0B0C0E 13px 26px)}
+
+/* ---------- сетки ---------- */
+.g2{display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(16px,2.4vw,26px)}
+.g3{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.4vw,26px)}
+.g4{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,2vw,22px)}
+
+/* ---------- карточки симптомов ---------- */
+.sym{background:#fff; border:2px solid var(--line-d); padding:clamp(20px,2.4vw,28px); position:relative; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
+.sym::before{content:attr(data-n); position:absolute; top:14px; right:16px; font-family:var(--osw); font-weight:700; font-size:34px; line-height:1; color:rgba(11,12,14,.09)}
+.sym h3{font-family:var(--osw); font-weight:600; text-transform:uppercase; font-size:clamp(1.05rem,1.6vw,1.35rem); line-height:1.1; max-width:18ch}
+.sym p{margin-top:10px; font-size:14.5px; color:rgba(11,12,14,.7)}
+.sym:hover{transform:translate(-3px,-3px); border-color:var(--red); box-shadow:7px 7px 0 var(--red)}
+.sec--ink .sym{background:var(--ink-2); border-color:rgba(255,255,255,.16); color:#fff}
+.sec--ink .sym::before{color:rgba(255,255,255,.1)}
+.sec--ink .sym p{color:rgba(255,255,255,.68)}
+.sec--ink .sym:hover{box-shadow:7px 7px 0 var(--red)}
+
+/* ---------- плитки с фото ---------- */
+.tile{position:relative; overflow:hidden; border:2px solid rgba(255,255,255,.14); background:#000}
+.tile img{width:100%; height:100%; object-fit:cover; filter:grayscale(1) contrast(1.08); transition:filter .45s ease, transform .45s ease; aspect-ratio:4/3}
+.tile:hover img{filter:none; transform:scale(1.04)}
+.tile figcaption{position:absolute; inset:auto 0 0 0; padding:16px; font-family:var(--osw); font-weight:500; font-size:13px; letter-spacing:.08em; text-transform:uppercase; background:linear-gradient(transparent,rgba(0,0,0,.85)); color:#fff}
+.tile--wide img{aspect-ratio:16/10}
+
+/* ---------- крупные цифры ---------- */
+.nums{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,2.4vw,28px); border-top:2px solid var(--line)}
+.nums > div{padding-top:20px; border-right:2px solid var(--line); padding-right:14px}
+.nums > div:last-child{border-right:0}
+.nums b{display:block; font-family:var(--osw); font-weight:700; font-size:clamp(2.1rem,4.6vw,3.6rem); line-height:1; color:var(--amber)}
+.nums span{display:block; margin-top:8px; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); line-height:1.4}
+
+/* ---------- прайс ---------- */
+.price-list{border-top:2px solid var(--line-d)}
+.prow{display:flex; align-items:baseline; gap:16px; padding:16px 0; border-bottom:2px solid var(--line-d); transition:background .15s ease}
+.prow:hover{background:rgba(225,38,28,.05)}
+.prow .pn{font-family:var(--osw); font-weight:500; font-size:clamp(1rem,1.5vw,1.15rem); text-transform:uppercase; letter-spacing:.02em; flex:1 1 auto}
+.prow .pm{font-size:12.5px; color:rgba(11,12,14,.55); white-space:nowrap}
+.prow .pp{font-family:var(--osw); font-weight:700; font-size:clamp(1.15rem,2vw,1.55rem); color:var(--red); white-space:nowrap; min-width:88px; text-align:right}
+.sec--ink .price-list,.sec--ink .prow{border-color:rgba(255,255,255,.16)}
+.sec--ink .prow:hover{background:rgba(255,255,255,.05)}
+.sec--ink .prow .pm{color:rgba(255,255,255,.5)}
+.sec--ink .prow .pp{color:var(--amber)}
+.note{margin-top:20px; font-size:13.5px; color:rgba(11,12,14,.6); max-width:70ch; padding-left:14px; border-left:3px solid var(--red)}
+.sec--ink .note{color:rgba(255,255,255,.6)}
+
+/* ---------- список услуг с номерами ---------- */
+.svc{display:grid; grid-template-columns:repeat(2,1fr); gap:0 clamp(20px,3vw,40px)}
+.svc li{display:flex; gap:14px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.14); font-size:15px; align-items:flex-start}
+.svc li b{font-family:var(--osw); font-weight:600; color:var(--red); font-size:13px; letter-spacing:.06em; padding-top:2px; min-width:22px}
+.svc--light li{border-color:var(--line-d); color:rgba(11,12,14,.85)}
+.svc--light li b{color:var(--red)}
+
+/* ---------- шаги ---------- */
+.steps{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,2.4vw,26px); counter-reset:s}
+.step{padding-top:18px; border-top:3px solid var(--red); position:relative}
+.step b{display:block; font-family:var(--osw); font-weight:700; font-size:clamp(2rem,3.6vw,2.8rem); line-height:1; color:var(--red)}
+.step h3{font-family:var(--osw); font-weight:600; text-transform:uppercase; font-size:1.1rem; margin-top:10px}
+.step p{font-size:14px; color:rgba(11,12,14,.68); margin-top:8px}
+.sec--ink .step p{color:rgba(255,255,255,.65)}
+.sec--ink .step{border-color:var(--amber)}
+.sec--ink .step b{color:var(--amber)}
+
+/* ---------- блок-баннер ---------- */
+.banner{background:var(--ink); color:#fff; border:2px solid var(--red); padding:clamp(24px,4vw,44px); display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between}
+.banner h2{font-family:var(--osw); font-weight:700; text-transform:uppercase; font-size:clamp(1.5rem,3.4vw,2.6rem); line-height:.98; max-width:20ch}
+.banner p{margin-top:10px; color:rgba(255,255,255,.7); font-size:15px; max-width:44ch}
+
+/* ---------- split с фото ---------- */
+.split{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,56px); align-items:center}
+.split--rev .split-media{order:2}
+.split-media{position:relative}
+.split-media img{width:100%; aspect-ratio:4/3; object-fit:cover; border:2px solid var(--red)}
+.split-media .tag{position:absolute; left:-2px; bottom:-2px; background:var(--red); color:#fff; font-family:var(--osw); font-weight:600; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; padding:9px 14px}
+
+/* ---------- CTA финальный ---------- */
+.cta{position:relative; overflow:hidden; background:#000; color:#fff; padding:clamp(56px,8vw,110px) 0; text-align:left}
+.cta-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.34; filter:grayscale(.6)}
+.cta::after{content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(6,7,9,.95),rgba(6,7,9,.6))}
+.cta-in{position:relative; z-index:2}
+.cta h2{font-family:var(--osw); font-weight:700; text-transform:uppercase; font-size:clamp(1.9rem,5vw,3.8rem); line-height:.96; max-width:18ch}
+.cta p{margin-top:16px; max-width:48ch; color:rgba(255,255,255,.78)}
+.cta .btn-row{margin-top:26px}
+.cta-phone{display:inline-block; margin-top:26px; font-family:var(--osw); font-weight:700; font-size:clamp(1.5rem,3.6vw,2.4rem); letter-spacing:.02em; border-bottom:3px solid var(--red); padding-bottom:4px}
+.cta-phone:hover{color:var(--amber); border-color:var(--amber)}
+
+/* ---------- подвал ---------- */
+.site-foot{background:var(--ink); color:#fff; border-top:2px solid var(--red); padding:clamp(38px,5vw,64px) 0 24px}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:clamp(24px,4vw,48px)}
+.foot-grid h4{font-family:var(--osw); font-weight:600; font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:14px}
+.foot-links{display:flex; flex-direction:column; gap:9px; font-size:14.5px}
+.foot-links a{color:rgba(255,255,255,.82)}
+.foot-links a:hover{color:var(--amber)}
+.site-foot .brand-txt span{color:rgba(255,255,255,.5)}
+.foot-about{margin-top:16px; font-size:14px; color:rgba(255,255,255,.6); max-width:34ch}
+.foot-bottom{margin-top:clamp(28px,4vw,44px); padding-top:18px; border-top:1px solid rgba(255,255,255,.14); display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between; font-size:12.5px; color:rgba(255,255,255,.45)}
+
+/* ---------- мелочи ---------- */
+.pills{display:flex; flex-wrap:wrap; gap:9px}
+.pill{font-family:var(--osw); font-weight:500; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; padding:8px 13px; border:2px solid var(--line-d); color:rgba(11,12,14,.75)}
+.sec--ink .pill{border-color:rgba(255,255,255,.2); color:rgba(255,255,255,.8)}
+.check li{position:relative; padding-left:26px; margin-top:11px; font-size:15px; color:rgba(11,12,14,.8)}
+.check li::before{content:''; position:absolute; left:0; top:9px; width:11px; height:11px; background:var(--red)}
+.sec--ink .check li{color:rgba(255,255,255,.78)}
+.contact-card{border:2px solid var(--line-d); padding:clamp(20px,2.6vw,30px); background:#fff}
+.contact-card h3{font-family:var(--osw); font-weight:600; text-transform:uppercase; font-size:1.05rem; letter-spacing:.06em; color:rgba(11,12,14,.55)}
+.contact-card .big{display:block; margin-top:10px; font-family:var(--osw); font-weight:700; font-size:clamp(1.4rem,2.8vw,2rem); line-height:1.1}
+.contact-card .big:hover{color:var(--red)}
+
+/* ---------- анимация появления ---------- */
+.rv{opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease}
+.rv.in{opacity:1; transform:none}
+
+/* ---------- адаптив ---------- */
+@media (max-width:1080px){
+  .nav{display:none}
+  .burger{display:block}
+  .head-cta .head-phone{display:none}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .nums{grid-template-columns:repeat(2,1fr)}
+  .nums > div:nth-child(2){border-right:0}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .g2,.g3,.svc,.split,.g4{grid-template-columns:1fr}
+  .split--rev .split-media{order:0}
+  .hero{min-height:min(78vh,640px)}
+  .hero h1{max-width:100%}
+  .stitle{font-size:clamp(1.7rem,7vw,2.4rem)}
+  .banner{flex-direction:column; align-items:flex-start}
+  .prow{flex-wrap:wrap}
+  .prow .pm{order:3; flex:1 1 100%}
+  .foot-grid{grid-template-columns:1fr}
+  .head-in{height:64px}
+  .brand-txt b{font-size:16px}
+  .brand-txt span{font-size:8.5px}
+}
+@media (max-width:520px){
+  .steps{grid-template-columns:1fr}
+  .nums{grid-template-columns:1fr}
+  .nums > div{border-right:0; border-bottom:2px solid var(--line); padding-bottom:14px}
+}
+
+/* мобильное меню */
+.nav-open .nav{
+  display:flex; position:fixed; inset:74px 0 0 0; background:rgba(9,10,12,.99); z-index:55;
+  flex-direction:column; padding:24px clamp(16px,4vw,40px); gap:0; overflow:auto;
+}
+.nav-open .nav a{font-size:22px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.12); width:100%}
+.nav-open .nav a::after{display:none}
+@media (max-width:760px){.nav-open .nav{inset:64px 0 0 0}}
+
+/* ---------- шапка внутренней страницы ---------- */
+.page-head{position:relative; background:var(--ink); color:#fff; padding:clamp(44px,6.5vw,84px) 0 clamp(34px,5vw,56px); overflow:hidden; border-bottom:2px solid var(--red)}
+.page-head .wrap{position:relative; z-index:2}
+.page-head h1{font-family:var(--osw); font-weight:700; text-transform:uppercase; font-size:clamp(1.95rem,5.2vw,3.9rem); line-height:.96; margin-top:14px; max-width:22ch}
+.page-head .lead{color:rgba(255,255,255,.72)}
+.crumbs{display:flex; gap:8px; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.45)}
+.crumbs a:hover{color:#fff}
+.crumbs span{color:rgba(255,255,255,.3)}
+.quote{border-left:4px solid var(--red); padding:6px 0 6px 18px; font-size:clamp(16px,2vw,20px); font-style:italic; color:rgba(11,12,14,.8); max-width:56ch}
+.sec--ink .quote{color:rgba(255,255,255,.8)}
